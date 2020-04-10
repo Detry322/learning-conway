@@ -6,7 +6,7 @@ import torch.nn.functional as F
 class NeuralConway(nn.Module):
     def __init__(self):
         super(NeuralConway, self).__init__()
-        self.conv1 = nn.Conv2d(1, 3, 3)
+        self.conv1 = nn.Conv2d(1, 3, 3, padding=2, padding_mode='circular')
         self.conv2 = nn.Conv2d(3, 1, 1)
 
     def forward(self, x):
