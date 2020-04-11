@@ -16,19 +16,19 @@ class NeuralConway(nn.Module):
         x = x.reshape(x.shape[0], *x.shape[2:])
         return x
 
-    def load_conway_weights(self):
+    def load_conway_weights(self, multiplier=100):
         self.load_state_dict({
             'conv1.weight': torch.tensor([
-                [[[-100.0, -100.0, -100.0],
-                  [-100.0, -100.0, -100.0],
-                  [-100.0, -100.0, -100.0]]],
-                [[[-100.0, -100.0, -100.0],
-                  [-100.0, -100.0, -100.0],
-                  [-100.0, -100.0, -100.0]]],
-                [[[ 100.0,  100.0,  100.0],
-                  [ 100.0,    0.0,  100.0],
-                  [ 100.0,  100.0,  100.0]]]]),
-            'conv1.bias': torch.tensor([ 250.0,  250.0, -350.0]),
-            'conv2.weight': torch.tensor([[[[-100.0]], [[-100.0]], [[-200.0]]]]),
-            'conv2.bias': torch.tensor([50.0])
+                [[[-1.0, -1.0, -1.0],
+                  [-1.0, -1.0, -1.0],
+                  [-1.0, -1.0, -1.0]]],
+                [[[-1.0, -1.0, -1.0],
+                  [-1.0, -1.0, -1.0],
+                  [-1.0, -1.0, -1.0]]],
+                [[[ 1.0,  1.0,  1.0],
+                  [ 1.0,  0.0,  1.0],
+                  [ 1.0,  1.0,  1.0]]]]) * multiplier,
+            'conv1.bias': torch.tensor([ 2.5,  2.5, -3.5]) * multiplier,
+            'conv2.weight': torch.tensor([[[[-1.0]], [[-1.0]], [[-2.0]]]]) * multiplier,
+            'conv2.bias': torch.tensor([0.5]) * multiplier
         })

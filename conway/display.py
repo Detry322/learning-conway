@@ -2,7 +2,7 @@ import torch
 import torchvision.transforms as transforms
 import PIL
 
-def make_random_gif(model, outfile, num_frames=500, size=100):
+def make_random_gif(model, outfile, num_frames=150, size=500):
     start = torch.randint(0, 2, (1, size, size)) + 0.
     frames = [start]
     for i in range(num_frames):
